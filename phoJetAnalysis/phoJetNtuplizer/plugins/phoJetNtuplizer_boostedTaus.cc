@@ -147,7 +147,7 @@ vector<bool>  boostedTauagainstElectronLooseMVA62018_;
 vector<bool>  boostedTauagainstElectronTightMVA62018_;
 
 
-
+vector<UInt_t> mva_tau_IDbits_;
 //vector<vecto<float>>
 
 
@@ -288,6 +288,7 @@ void phoJetNtuplizer::branchesBoostedTaus(TTree* tree)
     tree->Branch("boostedTauagainstElectronLooseMVA62018"  ,&boostedTauagainstElectronLooseMVA62018_);
     tree->Branch("boostedTauagainstElectronTightMVA62018"  ,&boostedTauagainstElectronTightMVA62018_);
     
+    tree->Branch("mva_tau_IDbits",                                            &mva_tau_IDbits_);
 }
 
 void phoJetNtuplizer::fillBoostedTaus(const edm::Event& e)
@@ -426,6 +427,8 @@ void phoJetNtuplizer::fillBoostedTaus(const edm::Event& e)
     boostedTauagainstElectronLooseMVA62018_.clear();
     boostedTauagainstElectronTightMVA62018_.clear();
     
+    mva_tau_IDbits_                                         .clear();
+
     nBoostedTau_ = 0;
     nBoostedTauOrig_ = 0;
     
@@ -548,6 +551,26 @@ void phoJetNtuplizer::fillBoostedTaus(const edm::Event& e)
         boostedTauagainstElectronLooseMVA62018_.push_back(itau->tauID("againstElectronLooseMVA62018"));
         boostedTauagainstElectronTightMVA62018_.push_back(itau->tauID("againstElectronTightMVA62018"));
         
+    
+    // // MVA based 2017v2 discriminators
+    // UInt_t tmpIDbits_ = 0;
+    // bool isVVLooseIsolation           = itau->tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isVVLooseIsolation)  setbit(tmpIDbits_, 12);
+    // bool isVLooseIsolation            = itau->tauID("byVLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isVLooseIsolation)  setbit(tmpIDbits_, 13);
+    // bool isLooseIsolation             = itau->tauID("byLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isLooseIsolation)  setbit(tmpIDbits_, 14);
+    // bool isMediumIsolation            = itau->tauID("byMediumIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isMediumIsolation)  setbit(tmpIDbits_, 15);
+    // bool isTightIsolation             = itau->tauID("byTightIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isTightIsolation)  setbit(tmpIDbits_, 16);
+    // bool isVTightIsolation            = itau->tauID("byVTightIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isVTightIsolation)  setbit(tmpIDbits_, 17);
+    // bool isVVTightIsolation           = itau->tauID("byVVTightIsolationMVArun2017v2DBoldDMwLT2017");
+    // if (isVVTightIsolation)  setbit(tmpIDbits_, 18);
+    
+    // mva_tau_IDbits_               .push_back(tmpIDbits_);
+
         vector<float> sigCharged;
         sigCharged.clear();
         for (auto& cand : itau->signalChargedHadrCands()) {

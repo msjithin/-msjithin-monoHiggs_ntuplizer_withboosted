@@ -245,21 +245,21 @@ void phoJetNtuplizer::fillTaus (const edm::Event& iEvent){
     bool isTightCombinedIsolation     = itau->tauID("byTightCombinedIsolationDeltaBetaCorr3Hits");
     if (isTightCombinedIsolation)  setbit(tmpIDbits_, 11);
 
-    // //MVA based 2017v2 discriminators
-    // bool isVVLooseIsolation           = itau->tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isVVLooseIsolation)  setbit(tmpIDbits_, 12);
-    // bool isVLooseIsolation            = itau->tauID("byVLooseIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isVLooseIsolation)  setbit(tmpIDbits_, 13);
-    // bool isLooseIsolation             = itau->tauID("byLooseIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isLooseIsolation)  setbit(tmpIDbits_, 14);
-    // bool isMediumIsolation            = itau->tauID("byMediumIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isMediumIsolation)  setbit(tmpIDbits_, 15);
-    // bool isTightIsolation             = itau->tauID("byTightIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isTightIsolation)  setbit(tmpIDbits_, 16);
-    // bool isVTightIsolation            = itau->tauID("byVTightIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isVTightIsolation)  setbit(tmpIDbits_, 17);
-    // bool isVVTightIsolation           = itau->tauID("byVVTightIsolationMVArun2017v2DBoldDMwLT2017");
-    // if (isVVTightIsolation)  setbit(tmpIDbits_, 18);
+    //MVA based 2017v2 discriminators
+    bool isVVLooseIsolation           = itau->tauID("byVVLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isVVLooseIsolation)  setbit(tmpIDbits_, 12);
+    bool isVLooseIsolation            = itau->tauID("byVLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isVLooseIsolation)  setbit(tmpIDbits_, 13);
+    bool isLooseIsolation             = itau->tauID("byLooseIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isLooseIsolation)  setbit(tmpIDbits_, 14);
+    bool isMediumIsolation            = itau->tauID("byMediumIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isMediumIsolation)  setbit(tmpIDbits_, 15);
+    bool isTightIsolation             = itau->tauID("byTightIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isTightIsolation)  setbit(tmpIDbits_, 16);
+    bool isVTightIsolation            = itau->tauID("byVTightIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isVTightIsolation)  setbit(tmpIDbits_, 17);
+    bool isVVTightIsolation           = itau->tauID("byVVTightIsolationMVArun2017v2DBoldDMwLT2017");
+    if (isVVTightIsolation)  setbit(tmpIDbits_, 18);
     
     tau_IDbits_               .push_back(tmpIDbits_);
     

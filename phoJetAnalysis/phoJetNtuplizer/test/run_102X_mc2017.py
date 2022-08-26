@@ -229,7 +229,7 @@ updatedTauName = "slimmedTausNewID" #name of pat::Tau collection with new tau-Id
 import RecoTauTag.RecoTau.tools.runTauIdMVA as tauIdConfig
 tauIdEmbedder = tauIdConfig.TauIDEmbedder(process, cms, debug = False,
                     updatedTauName = updatedTauName,
-                    toKeep = [  "deepTau2017v2p1" ])
+                    toKeep = [ "2017v2", "deepTau2017v2p1" ])
 tauIdEmbedder.runTauID()
 
 ### Analyzer Related
@@ -281,14 +281,15 @@ boostedTauIdEmbedder = tauIdConfig.BoostedTauIDEmbedder(process, cms, debug = Fa
                     srcChargedIsoPtSum = cms.string('chargedIsoPtSumNoOverLap'),
                     srcNeutralIsoPtSum = cms.string('neutralIsoPtSumNoOverLap'),
                     toKeep = [
-#                                "2017v2", "dR0p32017v2", "newDM2017v2", #classic MVAIso tau-Ids
+                                "2017v2", "dR0p32017v2", "newDM2017v2", #classic MVAIso tau-Ids
 #                               "deepTau2017v1", #deepTau Tau-Ids
 #                               "DPFTau_2016_v0", #D[eep]PF[low] Tau-Id
 #                                "2017v2","deepTau2017v1","againstEle2018"
 #                                "2017v2","againstEle2018"
 #                                "2017v2","deepTau2017v1","againstEle2018"
 #                                "2017v2","newDM2017v2","againstEle2018"
-                                "2017v2","againstEle2018"
+#                                "2017v2","againstEle2018"
+                                "againstEle2018"
                                ])
 boostedTauIdEmbedder.runBoostedTauID()
 
@@ -301,13 +302,14 @@ process.p = cms.Path(
     
     process.prefiringweight *
 
+    process.rerunMvaIsolationSequence *
+    getattr(process,updatedTauName) *
+    
     process.ca8PFJetsCHSprunedForBoostedTausPAT *
     getattr(process, "cleanedSlimmedTausBoosted") *
     process.rerunMvaIsolationBoostSequence *
     getattr(process,updatedBoostedTauName) *
  
-    process.rerunMvaIsolationSequence *
-    getattr(process,updatedTauName) *
 
 
     process.phoJetNtuplizer

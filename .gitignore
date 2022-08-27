@@ -4,3 +4,7 @@ __init__.py
 .#*
 #*#
 *~
+.gitignore
+*.log
+phoJetAnalysis/phoJetNtuplizer/test/run_102X_data2017_*.py
+phoJetAnalysis/phoJetNtuplizer/test/run_102X_mc2017_*.py

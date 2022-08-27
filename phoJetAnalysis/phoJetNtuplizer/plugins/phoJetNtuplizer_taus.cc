@@ -261,6 +261,22 @@ void phoJetNtuplizer::fillTaus (const edm::Event& iEvent){
     bool isVVTightIsolation           = itau->tauID("byVVTightIsolationMVArun2017v2DBoldDMwLT2017");
     if (isVVTightIsolation)  setbit(tmpIDbits_, 18);
     
+    bool isVVLooseIsolation_2016           = itau->tauID("byVVLooseIsolationMVArun2v1DBoldDMwLT");
+    if (isVVLooseIsolation_2016)  setbit(tmpIDbits_, 20);
+    bool isVLooseIsolation_2016            = itau->tauID("byVLooseIsolationMVArun2v1DBoldDMwLT");
+    if (isVLooseIsolation_2016)   setbit(tmpIDbits_, 21);
+    bool isLooseIsolation_2016             = itau->tauID("byLooseIsolationMVArun2v1DBoldDMwLT");
+    if (isLooseIsolation_2016)    setbit(tmpIDbits_, 22);
+    bool isMediumIsolation_2016            = itau->tauID("byMediumIsolationMVArun2v1DBoldDMwLT");
+    if (isMediumIsolation_2016)   setbit(tmpIDbits_, 23);
+    bool isTightIsolation_2016             = itau->tauID("byTightIsolationMVArun2v1DBoldDMwLT");
+    if (isTightIsolation_2016)    setbit(tmpIDbits_, 24);
+    bool isVTightIsolation_2016            = itau->tauID("byVTightIsolationMVArun2v1DBoldDMwLT");
+    if (isVTightIsolation_2016)   setbit(tmpIDbits_, 25);
+    bool isVVTightIsolation_2016           = itau->tauID("byVVTightIsolationMVArun2v1DBoldDMwLT");
+    if (isVVTightIsolation_2016)  setbit(tmpIDbits_, 26);
+
+
     tau_IDbits_               .push_back(tmpIDbits_);
     
     // tau_byIsolationMVArun2017v2DBoldDMwLTraw2017_          .push_back(itau->tauID("byIsolationMVArun2017v2DBoldDMwLTraw2017"));

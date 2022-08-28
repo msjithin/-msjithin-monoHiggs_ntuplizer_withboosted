@@ -28,5 +28,5 @@ https://github.com/varuns23/phoJetAnalysis/
 
 To clone this repo
 ```
-git clone https://github.com/msjithin/-msjithin-monoHiggs_ntuplizer_withboosted.git
+git clone https://github.com/msjithin/monoHiggs_ntuplizer_withboosted.git
 ```
